@@ -73,6 +73,7 @@ jobs:
     - aggregate:
       - get: release-candidate
         passed: [promote-to-uat]
+        trigger: true
       - get: version
         params: { bump: final }
         passed: [promote-to-uat]
