@@ -21,4 +21,4 @@ set -e
 # cd git-repo/concourse-spring-music/bin
 # ./makeItBlue.sh
 cp git-repo/src/main/webapp/assets/css/blue-app.css git-repo/src/main/webapp/assets/css/app.css
-git add git-repo/src/main/webapp/assets/css/app.css
+# git add git-repo/src/main/webapp/assets/css/app.css
