@@ -9,21 +9,21 @@ set -e
   # touch ~/.ssh/known_hosts
   # ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
-  echo $SSH_KEY > ~/.ssh/id_rsa
-  chmod 600 ~/.ssh/id_rsa
+  # echo $SSH_KEY > ~/.ssh/id_rsa
+  # chmod 600 ~/.ssh/id_rsa
   # eval `ssh-agent -s`
 
   # openssl rsa -in ~/.ssh/id_rsa -out ~/.ssh/id_rsa
-  eval $(ssh-agent) >/dev/null 2>&1
-  trap "kill $SSH_AGENT_PID" 0
-  DISPLAY= ssh-add ~/.ssh/id_rsa >/dev/null
+  # eval $(ssh-agent) >/dev/null 2>&1
+  # trap "kill $SSH_AGENT_PID" 0
+  # DISPLAY= ssh-add ~/.ssh/id_rsa >/dev/null
   # DISPLAY= ssh-add -k ~/.ssh/id_rsa </dev/null &>/dev/null
   # echo "\r" | ssh-add ~/.ssh/id_rsa
-  cat > ~/.ssh/config <<EOF
-StrictHostKeyChecking no
-LogLevel quiet
-EOF
-  chmod 0600 ~/.ssh/config
+#   cat > ~/.ssh/config <<EOF
+# StrictHostKeyChecking no
+# LogLevel quiet
+# EOF
+#   chmod 0600 ~/.ssh/config
 
   # echo "PPPPPAAAASSSWORD"
   # ssh-add ~/.ssh/id_rsa
@@ -34,7 +34,7 @@ EOF
 # machine github.com login $username password $password
 # EOF
 echo $GIT_REPO
-git clone $GIT_REPO
+git clone https://$username:$password@github.com/s1p-demo/concourse-spring-music.git
 
 ls
 cd concourse-spring-music
