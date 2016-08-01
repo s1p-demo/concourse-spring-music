@@ -5,23 +5,23 @@ set -e
 #exec 1>&2 # redirect all output to stderr for logging
 
 # load_pubkey() {
-  # mkdir ~/.ssh
+  mkdir ~/.ssh
   # touch ~/.ssh/known_hosts
-  # ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+  ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
-  # echo $SSH_KEY > ~/.ssh/id_rsa
-  # chmod 600 ~/.ssh/id_rsa
+  echo $SSH_KEY > ~/.ssh/id_rsa
+  chmod 600 ~/.ssh/id_rsa
   # eval `ssh-agent -s`
 
   # openssl rsa -in ~/.ssh/id_rsa -out ~/.ssh/id_rsa
-#   eval $(ssh-agent) >/dev/null 2>&1
-#   trap "kill $SSH_AGENT_PID" 0
-#
-#   cat > ~/.ssh/config <<EOF
-# StrictHostKeyChecking no
-# LogLevel quiet
-# EOF
-#   chmod 0600 ~/.ssh/config
+  eval $(ssh-agent) >/dev/null 2>&1
+  trap "kill $SSH_AGENT_PID" 0
+  SSH_ASKPASS=/opt/resource/askpass.sh DISPLAY= ssh-add $private_key_path >/dev/null
+  cat > ~/.ssh/config <<EOF
+StrictHostKeyChecking no
+LogLevel quiet
+EOF
+  chmod 0600 ~/.ssh/config
 
   # echo "PPPPPAAAASSSWORD"
   # ssh-add ~/.ssh/id_rsa
