@@ -2,7 +2,7 @@
 set -e
 
 mkdir ~/.ssh
-touch ~/.ssh/known_hosts
+# touch ~/.ssh/known_hosts
 # ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
 echo $SSH_KEY > ~/.ssh/id_rsa
@@ -13,8 +13,8 @@ chmod 600 ~/.ssh/id_rsa
 eval $(ssh-agent) >/dev/null 2>&1
 trap "kill $SSH_AGENT_PID" 0
 
-SSH_ASKPASS=/opt/resource/askpass.sh DISPLAY= ssh-add ~/.ssh/id_rsa >/dev/null
-echo $SSH_ASKPASS
+# SSH_ASKPASS=/opt/resource/askpass.sh DISPLAY= ssh-add ~/.ssh/id_rsa >/dev/null
+# echo $SSH_ASKPASS
 cat > ~/.ssh/config <<EOF
 StrictHostKeyChecking no
 LogLevel quiet
