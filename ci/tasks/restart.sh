@@ -37,13 +37,14 @@ git clone $GIT_REPO
 ls
 cd concourse-spring-music
 cd bin
+
 # ls blue-green
 # ls blue-green-output
 git config --global user.email "bbyers@pivotal.io"
 git config --global user.name "Concourse"
 git config --global push.default matching
 
-# ./makeItBlue.sh
-cp src/main/webapp/assets/css/blue-app.css src/main/webapp/assets/css/app.css
-git add src/main/webapp/assets/css/app.css
+./makeItBlue.sh
+# cp src/main/webapp/assets/css/blue-app.css src/main/webapp/assets/css/app.css
+# git add src/main/webapp/assets/css/app.css
 git status
