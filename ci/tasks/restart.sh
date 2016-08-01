@@ -32,7 +32,7 @@ set -e
 # machine github.com login $username password $password
 # EOF
 
-git clone $username:password@$GIT_REPO
+# git clone $username:password@$GIT_REPO
 
 ls
 cd concourse-spring-music
