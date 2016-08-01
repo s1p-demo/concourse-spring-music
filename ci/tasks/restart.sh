@@ -18,7 +18,7 @@ load_pubkey() {
   trap "kill $SSH_AGENT_PID" 0
 
   echo "PPPPPAAAASSSWORD"
-  SSH_ASKPASS=/opt/resource/askpass.sh DISPLAY= ssh-add ~/.ssh/id_rsa >/dev/null
+  ssh-add ~/.ssh/id_rsa
   expect "id_rsa:"
   send "\r"
   interact
