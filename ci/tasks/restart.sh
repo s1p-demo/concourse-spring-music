@@ -4,7 +4,7 @@ set -e
 version=`cat version/number`
 git clone https://$password@github.com/s1p-demo/concourse-spring-music.git
 
-color=`cat blue-green-file/`
+color=`cat blue-green-file/color*`
 
 # make it colorful!
 cd concourse-spring-music
