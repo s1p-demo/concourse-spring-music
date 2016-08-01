@@ -7,7 +7,7 @@ set -e
 # load_pubkey() {
   mkdir ~/.ssh
   # touch ~/.ssh/known_hosts
-  ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+  # ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
   echo $SSH_KEY > ~/.ssh/id_rsa
   chmod 600 ~/.ssh/id_rsa
