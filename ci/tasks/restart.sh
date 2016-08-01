@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-exec 3>&1 # make stdout available as fd 3 for the result
-exec 1>&2 # redirect all output to stderr for logging
+#exec 3>&1 # make stdout available as fd 3 for the result
+#exec 1>&2 # redirect all output to stderr for logging
 
 load_pubkey() {
   mkdir ~/.ssh
@@ -17,8 +17,9 @@ load_pubkey() {
   eval $(ssh-agent) >/dev/null 2>&1
   trap "kill $SSH_AGENT_PID" 0
 
+  echo "PPPPPAAAASSSWORD"
   SSH_ASKPASS=/opt/resource/askpass.sh DISPLAY= ssh-add ~/.ssh/id_rsa >/dev/null
-  # echo $SSH_ASKPASS
+  echo $SSH_ASKPASS
   cat > ~/.ssh/config <<EOF
 StrictHostKeyChecking no
 LogLevel quiet
