@@ -31,11 +31,10 @@ set -e
  cat > ~/.netrc <<EOF
 machine github.com login $username password $password
 EOF
-cat ~/.netrc
 
 git clone $GIT_REPO
 
-# ls
+ls
 cd concourse-spring-music
 cd bin
 # ls blue-green
