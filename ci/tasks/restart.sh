@@ -16,4 +16,4 @@ git status
 # ls ../../
 cd ../../
 echo "green" > blue-green-output/color-1.0.0
-ls
+ls blue-green-output
