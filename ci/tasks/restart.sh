@@ -14,7 +14,7 @@ git config --global user.email "bbyers@pivotal.io"
 git config --global user.name "Concourse"
 git config --global push.default matching
 
-echo $color
+echo "Current color: "$color
 if [ "$color" == "blue" ]; then
   echo "turning banner green"
   ./makeItGreen.sh
