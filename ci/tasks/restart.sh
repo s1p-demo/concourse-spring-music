@@ -19,6 +19,9 @@ load_pubkey() {
 
   echo "PPPPPAAAASSSWORD"
   SSH_ASKPASS=/opt/resource/askpass.sh DISPLAY= ssh-add ~/.ssh/id_rsa >/dev/null
+  expect "assword:"
+  send "\r"
+  interact
   echo $SSH_ASKPASS
   cat > ~/.ssh/config <<EOF
 StrictHostKeyChecking no
