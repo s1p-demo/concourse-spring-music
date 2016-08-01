@@ -31,7 +31,7 @@ EOF
 #  cat > ~/.netrc <<EOF
 # machine github.com login $username password $password
 # EOF
-
+echo $GIT_REPO
 git clone $GIT_REPO
 
 ls
