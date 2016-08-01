@@ -6,8 +6,8 @@ touch ~/.ssh/known_hosts
 ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
 echo $SSH_KEY > ~/.ssh/id_rsa
-cat ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
+eval `ssh-agent -s`
 ssh-add ~/.ssh/id_rsa
 git clone $GIT_REPO
 # ls
@@ -23,3 +23,4 @@ cd concourse-spring-music/bin
 # ./makeItBlue.sh
 cp src/main/webapp/assets/css/blue-app.css src/main/webapp/assets/css/app.css
 git add src/main/webapp/assets/css/app.css
+git status
