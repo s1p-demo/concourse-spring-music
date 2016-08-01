@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
+version=`cat version/number`
 git clone https://$password@github.com/s1p-demo/concourse-spring-music.git
 
-color=`cat blue-green-file/color-1.0.0`
+color=`cat blue-green-file/`
 
 # make it colorful!
 cd concourse-spring-music
@@ -17,9 +18,9 @@ echo $color
 if [ "$color" == "blue" ]; then
   echo "turning banner green"
   ./makeItGreen.sh
-  echo "green" > ../../blue-green-output/color-1.0.0
+  echo "green" > ../../blue-green-output/color-$version
 else
   echo "turning banner blue"
   ./makeItBlue.sh
-  echo "blue" > ../../blue-green-output/color-1.0.0
+  echo "blue" > ../../blue-green-output/color-$version
 fi

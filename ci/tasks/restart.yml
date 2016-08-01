@@ -9,6 +9,7 @@ image_resource:
 inputs:
   - name: git-repo
   - name: blue-green-file
+  - name: version
 
 outputs:
   - name: blue-green-output
