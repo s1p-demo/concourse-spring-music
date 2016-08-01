@@ -8,6 +8,7 @@ ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 echo $SSH_KEY > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 eval `ssh-agent -s`
+ls ~/.ssh
 ssh-add ~/.ssh/id_rsa
 git clone $GIT_REPO
 # ls
