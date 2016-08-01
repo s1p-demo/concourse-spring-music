@@ -28,14 +28,11 @@ set -e
 
 # }
 # load_pubkey
-git clone $GIT_REPO
+ cat > ~/.netrc <<EOF
+machine github.com login $username password $password
+EOF
 
-expect "sername:"
-send $username
-interact
-expect "assword:"
-send $password
-interact
+git clone $GIT_REPO
 
 # ls
 cd concourse-spring-music
