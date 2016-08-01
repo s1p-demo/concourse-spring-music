@@ -9,7 +9,7 @@ echo $SSH_KEY > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 eval `ssh-agent -s`
 ls ~/.ssh
-openssl rsa -in ~/.ssh/id_rsa -out ~/.ssh/id_rsa
+# openssl rsa -in ~/.ssh/id_rsa -out ~/.ssh/id_rsa
 ssh-add ~/.ssh/id_rsa
 git clone $GIT_REPO
 # ls
