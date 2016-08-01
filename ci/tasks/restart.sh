@@ -4,10 +4,9 @@ set -e
 mkdir ~/.ssh
 touch ~/.ssh/known_hosts
 ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-# echo "-----BEGIN RSA PRIVATE KEY-----
-#
-#   -----END RSA PRIVATE KEY-----" > ~/.ssh/id_rsa
+
 echo $SSH_KEY > ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 ssh-add ~/.ssh/id_rsa
 git clone $GIT_REPO
