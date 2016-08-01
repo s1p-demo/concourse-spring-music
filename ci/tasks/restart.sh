@@ -9,6 +9,7 @@ ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 #   -----END RSA PRIVATE KEY-----" > ~/.ssh/id_rsa
 echo $SSH_KEY > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
+ssh-add ~/.ssh/id_rsa
 git clone $GIT_REPO
 # ls
 cd concourse-spring-music
