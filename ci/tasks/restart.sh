@@ -4,33 +4,39 @@ set -e
 #exec 3>&1 # make stdout available as fd 3 for the result
 #exec 1>&2 # redirect all output to stderr for logging
 
-load_pubkey() {
-  mkdir ~/.ssh
+# load_pubkey() {
+  # mkdir ~/.ssh
   # touch ~/.ssh/known_hosts
   # ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
-  echo $SSH_KEY > ~/.ssh/id_rsa
-  chmod 600 ~/.ssh/id_rsa
+  # echo $SSH_KEY > ~/.ssh/id_rsa
+  # chmod 600 ~/.ssh/id_rsa
   # eval `ssh-agent -s`
 
   # openssl rsa -in ~/.ssh/id_rsa -out ~/.ssh/id_rsa
-  eval $(ssh-agent) >/dev/null 2>&1
-  trap "kill $SSH_AGENT_PID" 0
+#   eval $(ssh-agent) >/dev/null 2>&1
+#   trap "kill $SSH_AGENT_PID" 0
+#
+#   cat > ~/.ssh/config <<EOF
+# StrictHostKeyChecking no
+# LogLevel quiet
+# EOF
+#   chmod 0600 ~/.ssh/config
 
-  echo "PPPPPAAAASSSWORD"
-  spawn ssh-add ~/.ssh/id_rsa
-  expect "id_rsa:"
-  send "\r"
-  interact
-  echo $SSH_ASKPASS
-  cat > ~/.ssh/config <<EOF
-StrictHostKeyChecking no
-LogLevel quiet
-EOF
-  chmod 0600 ~/.ssh/config
-}
-load_pubkey
+  # echo "PPPPPAAAASSSWORD"
+  # ssh-add ~/.ssh/id_rsa
+
+# }
+# load_pubkey
 git clone $GIT_REPO
+
+expect "sername:"
+send $username
+interact
+expect "assword:"
+send $password
+interact
+
 # ls
 cd concourse-spring-music
 cd bin

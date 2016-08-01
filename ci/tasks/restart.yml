@@ -21,3 +21,5 @@ run:
 params:
   GIT_REPO:
   SSH_KEY:
+  username:
+  password:
