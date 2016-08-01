@@ -11,8 +11,9 @@ inputs:
   - name: git-repo
   - name: blue-green
 
-# outputs:
-  # - name: blue-green-output
+outputs:
+  - name: git-repo-output
+  - name: blue-green-output
 
 run:
   path: git-repo/ci/tasks/restart.sh
