@@ -19,5 +19,5 @@ run:
   path: git-repo/ci/tasks/restart.sh
 
 params:
-  # GIT_REPO:
-  # SSH_KEY:
+  GIT_REPO:
+  SSH_KEY:
