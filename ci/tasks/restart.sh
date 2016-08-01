@@ -7,7 +7,7 @@ touch ~/.ssh/known_hosts
 
 echo $SSH_KEY > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
-eval `ssh-agent -s`
+# eval `ssh-agent -s`
 
 # openssl rsa -in ~/.ssh/id_rsa -out ~/.ssh/id_rsa
 eval $(ssh-agent) >/dev/null 2>&1
