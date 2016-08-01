@@ -31,6 +31,7 @@ set -e
  cat > ~/.netrc <<EOF
 machine github.com login $username password $password
 EOF
+cat ~/.netrc
 
 git clone $GIT_REPO
 
