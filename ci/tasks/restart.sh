@@ -10,7 +10,17 @@ chmod 600 ~/.ssh/id_rsa
 eval `ssh-agent -s`
 ls ~/.ssh
 # openssl rsa -in ~/.ssh/id_rsa -out ~/.ssh/id_rsa
-ssh-add ~/.ssh/id_rsa
+eval $(ssh-agent) >/dev/null 2>&1
+trap "kill $SSH_AGENT_PID" 0
+
+SSH_ASKPASS=/opt/resource/askpass.sh DISPLAY= ssh-add ~/.ssh/id_rsa >/dev/null
+
+cat > ~/.ssh/config <<EOF
+StrictHostKeyChecking no
+LogLevel quiet
+EOF
+chmod 0600 ~/.ssh/config
+
 git clone $GIT_REPO
 # ls
 cd concourse-spring-music
