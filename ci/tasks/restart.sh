@@ -13,7 +13,11 @@ cd bin
 git config --global user.email "bbyers@pivotal.io"
 git config --global user.name "Concourse"
 git config --global push.default matching
-# ./makeItBlue.sh
-cd ../../
-echo "green" > blue-green-output/color-1.0.0
-ls blue-green-output
+
+if [[ "$color" == "blue" ]]
+  ./makeItGreen.sh
+  echo "green" > ../../blue-green-output/color-1.0.0
+else
+  ./makeItBlue.sh
+  echo "blue" > ../../blue-green-output/color-1.0.0
+fi
