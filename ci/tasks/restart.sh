@@ -10,7 +10,7 @@ git config --global user.email "bbyers@pivotal.io"
 git config --global user.name "Concourse"
 git config --global push.default matching
 
-color=`cat blue-green-file\color-1.0.0`
+color=`cat blue-green-file/color-1.0.0`
 echo $color
 # ./makeItBlue.sh
 
