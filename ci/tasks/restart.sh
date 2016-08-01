@@ -18,7 +18,7 @@ set -e
 # git config --global user.name "Concourse"
 # git config --global push.default matching
 
-cd git-repo/concourse-spring-music/bin
+# cd git-repo/concourse-spring-music/bin
 # ./makeItBlue.sh
-cp ../src/main/webapp/assets/css/blue-app.css ../src/main/webapp/assets/css/app.css
-git add ../src/main/webapp/assets/css/app.css
+cp git-repo/src/main/webapp/assets/css/blue-app.css git-repo/src/main/webapp/assets/css/app.css
+git add git-repo/src/main/webapp/assets/css/app.css
