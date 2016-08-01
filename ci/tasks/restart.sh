@@ -43,7 +43,6 @@ git config --global user.email "bbyers@pivotal.io"
 git config --global user.name "Concourse"
 git config --global push.default matching
 
-cd concourse-spring-music/bin
 # ./makeItBlue.sh
 cp src/main/webapp/assets/css/blue-app.css src/main/webapp/assets/css/app.css
 git add src/main/webapp/assets/css/app.css
