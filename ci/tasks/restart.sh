@@ -50,3 +50,5 @@ git config --global push.default matching
 # cp src/main/webapp/assets/css/blue-app.css src/main/webapp/assets/css/app.css
 # git add src/main/webapp/assets/css/app.css
 git status
+
+echo "green" > blue-green-output/color-1.0.0
