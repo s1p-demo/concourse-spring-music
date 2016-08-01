@@ -14,4 +14,6 @@ git config --global push.default matching
 ./makeItBlue.sh
 git status
 # ls ../../
-echo "green" > ../../blue-green-output/color-1.0.0
+cd ../../
+echo "green" > blue-green-output/color-1.0.0
+ls
