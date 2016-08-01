@@ -15,4 +15,4 @@ git config --global push.default matching
 git status
 # ls ../../
 echo "green" > ../../blue-green-output/color-1.0.0
-# ls blue-green-output
+ls ../../blue-green-output
