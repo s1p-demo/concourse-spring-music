@@ -34,7 +34,7 @@ set -e
 # machine github.com login $username password $password
 # EOF
 echo $GIT_REPO
-git clone https://$username:$password@github.com/s1p-demo/concourse-spring-music.git
+git clone https://$password@github.com/s1p-demo/concourse-spring-music.git
 
 ls
 cd concourse-spring-music
