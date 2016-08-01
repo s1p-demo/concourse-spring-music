@@ -3,12 +3,12 @@ set -e
 
 mkdir ~/.ssh
 touch ~/.ssh/known_hosts
-ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+# ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
 echo $SSH_KEY > ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa
 eval `ssh-agent -s`
-ls ~/.ssh
+
 # openssl rsa -in ~/.ssh/id_rsa -out ~/.ssh/id_rsa
 eval $(ssh-agent) >/dev/null 2>&1
 trap "kill $SSH_AGENT_PID" 0
