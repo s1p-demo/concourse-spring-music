@@ -2,7 +2,7 @@
 set -e
 
 # version=`cat version/number`
-# git clone https://$PASSWORD@github.com/s1p-demo/concourse-spring-music.git
+git clone https://$PASSWORD@github.com/s1p-demo/concourse-spring-music.git
 
 # mkdir ~/.aws
 # cat > ~/.aws/credentials <<EOF
