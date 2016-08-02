@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 set -e
 
-version=`cat version/number`
+# version=`cat version/number`
 git clone https://$PASSWORD@github.com/s1p-demo/concourse-spring-music.git
+
+
+
+# aws s3 get $S3_BUCKET/$S3_BLUE_GREEN_FILE
+aws s3 cp s3://$S3_BUCKET/$S3_BLUE_GREEN_FILE color
 
 color=`cat blue-green-file/color*`
 
@@ -24,9 +29,11 @@ echo "Current color: "$color
 if [ "$color" == "blue" ]; then
   echo "turning banner green"
   ./makeItGreen.sh
-  echo "green" > ../../blue-green-output/color-$version
+  echo "green" > ../../color
 else
   echo "turning banner blue"
   ./makeItBlue.sh
-  echo "blue" > ../../blue-green-output/color-$version
+  echo "blue" > ../../color
 fi
+
+aws s3 cp color s3://$S3_BUCKET/$S3_BLUE_GREEN_FILE
