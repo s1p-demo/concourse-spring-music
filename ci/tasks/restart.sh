@@ -6,6 +6,7 @@ git clone https://$PASSWORD@github.com/s1p-demo/concourse-spring-music.git
 
 mkdir ~/.aws
 cat > ~/.aws/credentials <<EOF
+[default]
 aws_access_key_id=$S3_ACCESS_KEY_ID
 aws_secret_access_key=$S3_SECRET_ACCESS_KEY
 EOF
