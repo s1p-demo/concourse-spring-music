@@ -4,18 +4,16 @@ set -e
 # version=`cat version/number`
 git clone https://$PASSWORD@github.com/s1p-demo/concourse-spring-music.git
 
-
-
-# aws s3 get $S3_BUCKET/$S3_BLUE_GREEN_FILE
-aws s3 cp s3://$S3_BUCKET/$S3_BLUE_GREEN_FILE color
-
-color=`cat blue-green-file/color*`
-
 mkdir ~/.aws
 cat > ~/.aws/credentials <<EOF
 aws_access_key_id=$S3_ACCESS_KEY_ID
 aws_secret_access_key=$S3_SECRET_ACCESS_KEY
 EOF
+
+# aws s3 get $S3_BUCKET/$S3_BLUE_GREEN_FILE
+aws s3 cp s3://$S3_BUCKET/$S3_BLUE_GREEN_FILE color
+
+color=`cat color`
 
 # make it colorful!
 cd concourse-spring-music
