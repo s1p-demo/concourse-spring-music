@@ -2,10 +2,16 @@
 set -e
 
 version=`cat version/number`
-git clone https://$password@github.com/s1p-demo/concourse-spring-music.git
+git clone https://$PASSWORD@github.com/s1p-demo/concourse-spring-music.git
 
 color=`cat blue-green-file/color*`
 
+mkdir ~/.aws
+cat > ~/.aws/credentials <<EOF
+aws_access_key_id=$S3_ACCESS_KEY_ID
+aws_secret_access_key=$S3_SECRET_ACCESS_KEY
+EOF
+cat ~/aws/credentials
 # make it colorful!
 cd concourse-spring-music
 cd bin
