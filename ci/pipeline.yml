@@ -92,6 +92,30 @@ jobs:
         current_app_name: spring-music
         path: final-dir/spring-music*.war
 
+  - name: restart
+    plan:
+    - aggregate:
+      - get: git-repo
+      - get: version
+        passed: [patch]
+        trigger: true
+      - get: blue-green-file
+    - task: restart-it
+      file: git-repo/ci/tasks/restart.yml
+      params:
+        GIT_REPO: {{GIT_REPO}}
+        PASSWORD: d92189e684cd1f7745f2d560b3c2136de00e8187
+        S3_BUCKET: {{S3_BUCKET}}
+        S3_BLUE_GREEN_FILE: {{S3_BLUE_GREEN}}
+        S3_ACCESS_KEY_ID: {{S3_ACCESS_KEY_ID}}
+        S3_SECRET_ACCESS_KEY: {{S3_SECRET_ACCESS_KEY}}
+    - put: blue-green-file
+      params:
+        file: blue-green-output/*
+    # - put: git-repo-blue-green
+    # params:
+    #   repository: git-repo
+
   - name: major
     serial_groups: [ version ]
     plan:
@@ -120,6 +144,15 @@ resources:
     uri: {{GIT_REPO}}
     branch: master
     private_key: {{GIT_PRIVATE_KEY}}
+
+- name: git-repo-blue-green
+  type: git
+  source:
+    uri: {{GIT_REPO}}
+    branch: master
+    private_key: {{GIT_PRIVATE_KEY}}
+    params:
+      repository: git-repo-output
 
 - name: deploy-test-app
   type: cf
@@ -173,5 +206,13 @@ resources:
   source:
     bucket: {{S3_BUCKET}}
     regexp: {{S3_DEPLOYMENTS}}
+    access_key_id: {{S3_ACCESS_KEY_ID}}
+    secret_access_key: {{S3_SECRET_ACCESS_KEY}}
+
+- name: blue-green-file
+  type: s3
+  source:
+    bucket: {{S3_BUCKET}}
+    regexp: {{S3_BLUE_GREEN}}
     access_key_id: {{S3_ACCESS_KEY_ID}}
     secret_access_key: {{S3_SECRET_ACCESS_KEY}}

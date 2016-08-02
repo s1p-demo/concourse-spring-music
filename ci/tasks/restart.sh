@@ -11,7 +11,7 @@ cat > ~/.aws/credentials <<EOF
 aws_access_key_id=$S3_ACCESS_KEY_ID
 aws_secret_access_key=$S3_SECRET_ACCESS_KEY
 EOF
-cat ~/.aws/credentials
+
 # make it colorful!
 cd concourse-spring-music
 cd bin
