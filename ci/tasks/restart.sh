@@ -36,4 +36,4 @@ else
   echo "blue" > ../../color
 fi
 
-aws s3 cp color s3://$S3_BUCKET/$S3_BLUE_GREEN_FILE
+aws s3 cp ../../color s3://$S3_BUCKET/$S3_BLUE_GREEN_FILE
