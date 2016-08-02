@@ -12,6 +12,7 @@ aws_secret_access_key=$S3_SECRET_ACCESS_KEY
 EOF
 
 # aws s3 get $S3_BUCKET/$S3_BLUE_GREEN_FILE
+echo $S3_BUCKET/$S3_BLUE_GREEN_FILE
 aws s3 cp s3://$S3_BUCKET/$S3_BLUE_GREEN_FILE color
 
 color=`cat color`
